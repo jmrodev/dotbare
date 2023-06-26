@@ -14,7 +14,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi    
     
 #     Prompts
-# Existe una forma rápida y fácil de establecer un prompt con colores en Zsh. Asegúrese que el prompt está establecido para autocargarse en .zshrc. Esto puede hacerse añadiendo las siguientes líneas:
+# Existe una forma rápida y fácil de establecer un prompt con colores en Zsh.
+# Asegúrese que el prompt está establecido para autocargarse en .zshrc. 
+# Esto puede hacerse añadiendo las siguientes líneas:
 #
 # ~/.zshrc
 # autoload -U promptinit
@@ -28,18 +30,23 @@ fi
 # Para previsualizar los temas disponibles, use el comando:
 #
 # $ prompt -p
-#     Zsh puede configurarse para recordar los DIRSTACKSIZE últimos directorio visitados. Esto puede usarse para hacer cd a ellos rápidamente. Tiene que añadir algunas lineas a su archivo de configuración:
+
+
+#   Zsh puede configurarse para recordar los DIRSTACKSIZE últimos directorio visitados.
+#   Esto puede usarse para hacer cd a ellos rápidamente. 
+#   Tiene que añadir algunas lineas a su archivo de configuración:
 
 
 
-    DIRSTACKFILE="$HOME/.cache/zsh/dirs"
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1]
-fi
-chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
+DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+  
+  if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+    [[ -d $dirstack[1] ]] && cd $dirstack[1]
+  fi
+    chpwd() {
+    print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+    }
 
 DIRSTACKSIZE=20
 
@@ -51,16 +58,15 @@ setopt pushdignoredups
 ## Esto revierte los operadores +/-.
 setopt pushdminus
 
-
-
-  autoload -U compinit promptinit
-  compinit
-  promptinit
-  #Para activar el menú, pulse tab dos veces.
-  zstyle ':completion:*' menu select
-  setopt completealiases
-  setopt HIST_IGNORE_DUPS
-  awk -i inplace '!x[$0]++' ~/.zsh_history
+autoload -U compinit promptinit
+compinit
+promptinit
+  
+#Para activar el menú, pulse tab dos veces.
+zstyle ':completion:*' menu select
+setopt completealiases
+setopt HIST_IGNORE_DUPS
+awk -i inplace '!x[$0]++' ~/.zsh_history
 
 
 # [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
@@ -90,7 +96,10 @@ setopt pushdminus
 
 
 # Asociaciones de teclas de gestor de archivos
-# Asociaciones de teclas al estilo de los gestores de archivos gráficos pueden ser muy útiles. El primero deja ir hacia atrás en el historial de directorios (Alt+Left), El segundo deja al usuario ir hacia el directorio padre (Alt+Up). Además de eso muestran el contenido del directorio.
+# Asociaciones de teclas al estilo de los gestores de archivos gráficos pueden ser muy útiles.
+# El primero deja ir hacia atrás en el historial de directorios (Alt+Left),
+# El segundo deja al usuario ir hacia el directorio padre (Alt+Up).
+# Además de eso muestran el contenido del directorio.
 #
 # ~/.zshrc
 cdUndoKey() {
@@ -133,8 +142,9 @@ bindkey '^[[1;3D'      cdUndoKey
     echo '            scanner()       --> Escanea mostrando puertos abiertos en la maquina local'
     echo '            extractPorts()  --> Extrae nmap informacion en un archivo'
     echo '            fzf-lovely()    --> fzf file manager'
-    echo '            listApps()      --> Guarda en dos archivos lista de app instaladas '
-    echo '            backupDots      --> Backup de dots en github'
+    echo '            backuApps()     --> Guarda en dos archivos lista de app instaladas '
+    echo '            backupDots()    --> Backup de dots en github'
+    echo '            appsPreview()   --> Preview de software instalado'
     #    echo '      funcion()      --> Descripcion '
     echo '
         ####################################################################################
@@ -170,8 +180,9 @@ function acercade() {
     echo '      scanner()       --> # "Escanea mostrando puertos abiertos en la maquina local'
     echo '      extractPorts()  --> Extrae nmap informacion en un archivo'
     echo '      fzf-lovely()    --> fzf file manager'
-    echo '      listApps()      --> Guarda en dos archivos lista de app instaladas '
+    echo '      backupApps()    --> Guarda en dos archivos lista de app instaladas '
     echo '      backupDots      --> Backup de dots en github'
+    echo '      appsPreview()   --> Preview de software instalado'
     echo ' '
     echo ' ####################################################################################'
     echo ' '
@@ -181,6 +192,35 @@ function acercade() {
 
 }
 # ------------------------------------------------------------------------------
+
+
+# alias bing='web_search bing'
+# alias brs='web_search brave'
+# alias google='web_search google'
+# alias yahoo='web_search yahoo'
+# alias ddg='web_search duckduckgo'
+# alias sp='web_search startpage'
+# alias yandex='web_search yandex'
+# alias github='web_search github'
+# alias baidu='web_search baidu'
+# alias ecosia='web_search ecosia'
+# alias goodreads='web_search goodreads'
+# alias qwant='web_search qwant'
+# alias givero='web_search givero'
+# alias stackoverflow='web_search stackoverflow'
+# alias wa='web_search wolframalpha'
+# alias archive='web_search archive'
+# alias scholar='web_search scholar'
+# alias ask='web_search ask'
+# alias translate='web_search translate'
+
+# #add your own !bang searches here
+# alias wiki='web_search duckduckgo \!w'
+# alias news='web_search duckduckgo \!n'
+# alias youtube='web_search duckduckgo \!yt'
+# alias map='web_search duckduckgo \!m'
+# alias image='web_search duckduckgo \!i'
+# alias ducky='web_search duckduckgo \!'
 
 
 
@@ -239,7 +279,8 @@ echo $RANDOM_THEME
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 
-# Descommento Una de las siguientes líneas para cambiar el comportamiento de actualización automática 
+# Descommento Una de las siguientes líneas para cambiar el comportamiento 
+# de actualización automática 
 # ZStyle ': OMZ: Update' Modo deshabilitado # Deshabilitar actualizaciones automáticas
 
 zstyle ':omz:update' mode auto      
@@ -253,7 +294,8 @@ zstyle ':omz:update' mode auto
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
 
-# Descomment la siguiente línea para cambiar con qué frecuencia se actualiza automáticamente (en días). 
+# Descomment la siguiente línea para cambiar con qué frecuencia se actualiza automáticamente 
+# (en días). 
 # zstyle ': OMZ: actualización' Frecuencia 13 
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -271,7 +313,8 @@ zstyle ':omz:update' mode auto
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Descommento La siguiente línea para deshabilitar el título de terminal de establecimiento automático. 
+# Descommento La siguiente línea para deshabilitar el título de terminal
+# de establecimiento automático. 
 # Disable_auto_title = "verdadero" 
 
 # Uncomment the following line to enable command auto-correction.
@@ -408,7 +451,7 @@ alias ohmyzsh='kate ~/.oh-my-zsh'
 alias update='yay -Syyyu --noconfirm'
 alias myip='curl http://ipecho.net/plain; echo'
 alias distro=    'cat /etc/*-release'
-alias reload=    'source ~/.zshrc'
+
 alias server=    'sudo python -m http.server'
 #python 2 = python -m SimpleHTTPServer 8000'
 
@@ -602,6 +645,7 @@ function manColor() {
     man "$@"
 }
 
+
 #
 #Crear funcion que anda como si fuera alias
 #
@@ -615,8 +659,12 @@ find_man() {
     man $1 | grep -- $2
 }
 
+function appsPreview(){
+pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 
-function listApps(){
+}
+
+function backupApps(){
   pacman -Qqm > pkglist-aur.txt
   pacman -Qqe > pkglist.txt
 }
@@ -624,6 +672,10 @@ function listApps(){
 function backupDots(){
   dotbare commit -a -m "ultimo backup"
   dotbare push -u origin main
+}
+
+function reload{
+  source ~/.zshrc
 }
 
 # alternativas para saber ip publica:
