@@ -622,8 +622,7 @@ function listApps(){
 }
 
 function backupDots(){
-  dotbare commit -m "ultimo backup"
-  dotbare add .
+  dotbare commit -a -m "ultimo backup"
   dotbare push -u origin main
 }
 
