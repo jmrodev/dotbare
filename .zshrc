@@ -13,40 +13,150 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi    
     
-    
-    
-    
-    
-    echo ' '
-    echo ' '
-    echo ' ####################################################################################'
-    echo ' '
-    echo '      acercade()      --> Mostrar este menú'
-    echo '      clone()         --> Clona y almacena en '$HOME'/code'
-    echo '      configura()     --> Editar archivos configuración apps más usadas'
-    echo '      laranew()       --> Crea un nuevo repositorio Laravel (¡NO TERMINADA!)'
-    echo '      localip()       --> Retorna la dirección IP local'
-    echo '      macaddr()       --> Retorna la MAC Address local'
-    echo '      pathadd()       --> Agrega la ruta enviada al PATH'
-    echo '      phpserver()     --> Monta un servidor PHP localmente'
-    echo '      publicip()      --> Retorna la dirección IP pública'
-    echo '      zshstats()      --> Muestra los 20 comandos más usados'
-    echo '      find_man()      --> "find_man 'app' 'palabra' = Busca la 'palabra' en 'app' '
-    echo '      scanner()       --> Escanea mostrando puertos abiertos en la maquina local'
-    echo '      extractPorts()  --> Extrae nmap informacion en un archivo'
-    echo '      fzf-lovely()    --> fzf file manager'
-    echo '      listApps()      --> Guarda en dos archivos lista de app instaladas '
+#     Prompts
+# Existe una forma rápida y fácil de establecer un prompt con colores en Zsh. Asegúrese que el prompt está establecido para autocargarse en .zshrc. Esto puede hacerse añadiendo las siguientes líneas:
+#
+# ~/.zshrc
+# autoload -U promptinit
+# promptinit
+# Prompts disponibles se pueden lista ejecutando el comando:
+#
+# $ prompt -l
+# Por ejemplo, Para usar el prompt walters, introduzca:
+#
+# $ prompt walters
+# Para previsualizar los temas disponibles, use el comando:
+#
+# $ prompt -p
+#     Zsh puede configurarse para recordar los DIRSTACKSIZE últimos directorio visitados. Esto puede usarse para hacer cd a ellos rápidamente. Tiene que añadir algunas lineas a su archivo de configuración:
 
+
+
+    DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1]
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
+
+DIRSTACKSIZE=20
+
+setopt autopushd pushdsilent pushdtohome
+
+## Elimina las entradas duplicadas
+setopt pushdignoredups
+
+## Esto revierte los operadores +/-.
+setopt pushdminus
+
+
+
+  autoload -U compinit promptinit
+  compinit
+  promptinit
+  #Para activar el menú, pulse tab dos veces.
+  zstyle ':completion:*' menu select
+  setopt completealiases
+  setopt HIST_IGNORE_DUPS
+  awk -i inplace '!x[$0]++' ~/.zsh_history
+
+
+# [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
+# [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
+# Haciendo esto, solo comandos anteriores que comiencen con la entrada actual se mostrarán.
+
+
+# Asociar combinaciones de teclas con aplicaciones ncurses
+# Puede asociarse una aplicación ncurses a una combinación de teclas, pero no aceptará interacciones. Use la variable BUFFER para que funcione.
+# El siguiente ejemplo permite a los usuarios abrir ncmpcpp usando Alt+\:
+#
+# ~/.zshrc
+
+# ncmpcppShow() { BUFFER="ncmpcpp"; zle accept-line; }
+# zle -N ncmpcppShow
+# bindkey '^[\' ncmpcppShow
+
+# Otra forma de asociar una aplicación ncurses
+# Este método mantendrá todo lo que haya introducido en la línea antes de llamar a la aplicación
+#
+# ~/.zshrc
+
+# ncmpcppShow() { ncmpcpp <$TTY; zle redisplay; }
+# zle -N ncmpcppShow
+# bindkey '^[\' ncmpcppShow
+#
+
+
+# Asociaciones de teclas de gestor de archivos
+# Asociaciones de teclas al estilo de los gestores de archivos gráficos pueden ser muy útiles. El primero deja ir hacia atrás en el historial de directorios (Alt+Left), El segundo deja al usuario ir hacia el directorio padre (Alt+Up). Además de eso muestran el contenido del directorio.
+#
+# ~/.zshrc
+cdUndoKey() {
+  popd      > /dev/null
+  zle       reset-prompt
+  echo
+  ls
+  echo
+}
+
+cdParentKey() {
+  pushd .. > /dev/null
+  zle      reset-prompt
+  echo
+  ls
+  echo
+}
+
+zle -N                 cdParentKey
+zle -N                 cdUndoKey
+bindkey '^[[1;3A'      cdParentKey
+bindkey '^[[1;3D'      cdUndoKey
+
+    
+    echo '
+
+          ####################################################################################'
+    echo ' '
+    echo '            acercade()      --> Mostrar este menú'
+    echo '            clone()         --> Clona y almacena en '$HOME'/code'
+    echo '            configura()     --> Editar archivos configuración apps más usadas'
+    echo '            laranew()       --> Crea un nuevo repositorio Laravel (¡NO TERMINADA!)'
+    echo '            localip()       --> Retorna la dirección IP local'
+    echo '            macaddr()       --> Retorna la MAC Address local'
+    echo '            pathadd()       --> Agrega la ruta enviada al PATH'
+    echo '            phpserver()     --> Monta un servidor PHP localmente'
+    echo '            publicip()      --> Retorna la dirección IP pública'
+    echo '            zshstats()      --> Muestra los 20 comandos más usados'
+    echo '            find_man()      --> "find_man 'app' 'palabra' = Busca la 'palabra' en 'app' '
+    echo '            scanner()       --> Escanea mostrando puertos abiertos en la maquina local'
+    echo '            extractPorts()  --> Extrae nmap informacion en un archivo'
+    echo '            fzf-lovely()    --> fzf file manager'
+    echo '            listApps()      --> Guarda en dos archivos lista de app instaladas '
+    echo '            backupDots      --> Backup de dots en github'
     #    echo '      funcion()      --> Descripcion '
-    echo ' '
-    echo ' ####################################################################################'
-    echo ' '
-    echo '      Alias : npmhelp,code,red,zshconfig,ohmyzsh,update,myip,distro,reload,server'
-    echo '      El programa "navi " es un buscador de comandos'
-    echo ' '
-    echo ' ####################################################################################'
+    echo '
+        ####################################################################################
+
+
+                Alias : npmhelp,code,red,zshconfig,ohmyzsh,update,myip,distro,reload,server
+                El programa "navi " es un buscador de comandos
+                Para activar el menú, pulse tab dos veces.
+                Ir hacia atrás en el historial de directorios (Alt+Left)
+                Ir hacia el directorio padre (Alt+Up)
+
+
+
+            ####################################################################################'
 
 function acercade() {
+
+
+    echo ' '
+    echo ' ####################################################################################'
+    echo ' '
+    echo ' '
     echo '      clone()         --> Clona un repositorio Git y lo almacena en '$HOME'/code'
     echo '      configura()     --> Permite editar los archivos de configuración de las aplicaciones más usadas'
     echo '      laranew()       --> Crea un nuevo repositorio Laravel (¡NO TERMINADA!)'
@@ -61,6 +171,14 @@ function acercade() {
     echo '      extractPorts()  --> Extrae nmap informacion en un archivo'
     echo '      fzf-lovely()    --> fzf file manager'
     echo '      listApps()      --> Guarda en dos archivos lista de app instaladas '
+    echo '      backupDots      --> Backup de dots en github'
+    echo ' '
+    echo ' ####################################################################################'
+    echo ' '
+    echo ' '
+
+
+
 }
 # ------------------------------------------------------------------------------
 
@@ -503,6 +621,11 @@ function listApps(){
   pacman -Qqe > pkglist.txt
 }
 
+function backupDots(){
+  dotbare commit -m "ultimo backup"
+  dotbare add .
+  dotbare push -u origin main
+}
 
 # alternativas para saber ip publica:
 # curl ipinfo.io/ip
