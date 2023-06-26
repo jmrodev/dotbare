@@ -1,3 +1,12 @@
+# alternativas para saber ip publica:
+# curl ipinfo.io/ip
+# curl ifconfig.me
+# curl bot.whatismyipaddress.com
+# dig +short myip.opendns.com @resolver1.opendns.com
+# curl checkip.dyndns.org
+# curl ident.me
+# host myip.opendns.com resolver1.opendns.com
+# curl ipecho.net/plain
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -674,18 +683,9 @@ function backupDots(){
   dotbare push -u origin main
 }
 
-function reload{
+function reload(){
   source ~/.zshrc
 }
 
-# alternativas para saber ip publica:
-# curl ipinfo.io/ip
-# curl ifconfig.me
-# curl bot.whatismyipaddress.com
-# dig +short myip.opendns.com @resolver1.opendns.com
-# curl checkip.dyndns.org
-# curl ident.me
-# host myip.opendns.com resolver1.opendns.com
-# curl ipecho.net/plain
 
 
