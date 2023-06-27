@@ -1,3 +1,4 @@
+ansiweather
 anydesk-bin
 czkawka-cli-bin
 czkawka-gui-bin
@@ -10,8 +11,6 @@ git-extras
 github-copilot-cli
 github-desktop
 google-chrome
-jellyfin-server-bin
-jellyfin-web-bin
 kde-servicemenus-newfolderwithselection
 kubecolor
 libelectron
@@ -19,6 +18,7 @@ lidarr
 microsoft-edge-stable-bin
 nerd-fonts-git
 nzbget-systemd
+pakbak-git
 postman-bin
 prowlarr
 radarr
@@ -29,4 +29,5 @@ sherlock
 sonarr
 teleprompter-git
 twitch
+virtualbox-ext-oracle
 zsh-theme-powerlevel10k-git

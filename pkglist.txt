@@ -7,6 +7,7 @@ adobe-source-sans-fonts
 alacritty
 alsa-firmware
 alsa-utils
+ansiweather
 anydesk-bin
 ark
 atuin
@@ -53,6 +54,7 @@ endless-sky
 eslauncher2
 exa
 exfatprogs
+expac
 f2fs-tools
 fd
 ffmpeg
@@ -152,7 +154,9 @@ libva-mesa-driver
 libva-vdpau-driver
 lidarr
 linux61
+linux61-virtualbox-host-modules
 logrotate
+lostfiles
 lvm2
 man-db
 man-pages
@@ -222,6 +226,7 @@ oxygen
 oxygen-icons
 p7zip
 packagekit-qt5
+pakbak-git
 pamac-cli
 pamac-gtk
 pamac-tray-icon-plasma
@@ -334,6 +339,9 @@ unarchiver
 usb_modeswitch
 usbutils
 vi
+virtualbox
+virtualbox-ext-oracle
+virtualbox-guest-utils
 visual-studio-code-insiders
 vlc
 vulkan-intel

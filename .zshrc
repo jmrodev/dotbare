@@ -682,9 +682,10 @@ function backupDots(){
 }
 
 function backupApps(){
-  backupDots()
+  
   pacman -Qqm > pkglist-aur.txt
   pacman -Qqe > pkglist.txt
+  backupDots
 }
 
 function reload(){
