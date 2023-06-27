@@ -59,17 +59,6 @@ DIRSTACKFILE="$HOME/.cache/zsh/dirs"
 
 DIRSTACKSIZE=20
 
-setopt autopushd pushdsilent pushdtohome
-
-## Elimina las entradas duplicadas
-setopt pushdignoredups
-
-## Esto revierte los operadores +/-.
-setopt pushdminus
-
-autoload -U compinit promptinit
-compinit
-promptinit
   
 #Para activar el menú, pulse tab dos veces.
 zstyle ':completion:*' menu select
@@ -415,9 +404,7 @@ source /usr/share/doc/find-the-command/ftc.zsh
 # User configuration
 # Configuración de usuario 
 
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -505,7 +492,6 @@ compdef __start_kubectl k
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/jmro/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 
 # ------------------------------------------------------------------------------
 # Monta el contenido del archivo enviado como parámetro en
@@ -615,7 +601,6 @@ function extractPorts(){
 	cat extractPorts.tmp; rm extractPorts.tmp
 }
 
-
 # fzf improvement
 function fzf-lovely(){
 
@@ -639,8 +624,6 @@ function fzf-lovely(){
 	fi
 }
 
-
-
 # Set 'man' colors
 function manColor() {
     env \
@@ -654,8 +637,6 @@ function manColor() {
     man "$@"
 }
 
-
-#
 #Crear funcion que anda como si fuera alias
 #
 # [alias-name]() {
@@ -673,24 +654,36 @@ pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execu
 
 }
 
-
-
 function backupDots(){
-  echo 'Realizando backup de los dots'
   dotbare commit -a -m "ultimo backup"
   dotbare push -u origin main
 }
 
 function backupApps(){
-  
   pacman -Qqm > pkglist-aur.txt
   pacman -Qqe > pkglist.txt
-  backupDots
 }
 
 function reload(){
   source ~/.zshrc
 }
 
+
+
+source /home/jmro/zaw/zaw.zsh
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=100000000
+SAVEHIST=100000000
+setopt autocd beep extendedglob nomatch notify pushdignoredups pushdminus autopushd pushdsilent pushdtohome
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/jmro/.zshrc'
+
+autoload -Uz compinit promptinit
+compinit
+promptinit
+# End of lines added by compinstall
 
 
