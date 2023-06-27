@@ -67,6 +67,7 @@ firefox-i18n-es-ar
 fwupd
 fzf
 git-extras
+git-secret
 github-cli
 github-copilot-cli
 github-desktop
@@ -208,6 +209,7 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
+ngrok
 nmap
 noto-fonts
 noto-fonts-emoji

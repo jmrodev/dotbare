@@ -8,6 +8,7 @@ eclipse-java
 eslauncher2
 find-the-command-git
 git-extras
+git-secret
 github-copilot-cli
 github-desktop
 google-chrome
@@ -17,6 +18,7 @@ libelectron
 lidarr
 microsoft-edge-stable-bin
 nerd-fonts-git
+ngrok
 nzbget-systemd
 pakbak-git
 postman-bin
