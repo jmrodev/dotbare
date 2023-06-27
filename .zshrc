@@ -133,10 +133,10 @@ bindkey '^[[1;3A'      cdParentKey
 bindkey '^[[1;3D'      cdUndoKey
 
     
-    echo '
-
-          ####################################################################################'
-    echo ' '
+    echo ''
+    echo ''
+    echo '            ####################################################################################'
+    echo ''
     echo '            acercade()      --> Mostrar este menú'
     echo '            clone()         --> Clona y almacena en '$HOME'/code'
     echo '            configura()     --> Editar archivos configuración apps más usadas'
@@ -149,29 +149,32 @@ bindkey '^[[1;3D'      cdUndoKey
     echo '            zshstats()      --> Muestra los 20 comandos más usados'
     echo '            find_man()      --> "find_man 'app' 'palabra' = Busca la 'palabra' en 'app' '
     echo '            scanner()       --> Escanea mostrando puertos abiertos en la maquina local'
-    echo '            extractPorts()  --> Extrae nmap informacion en un archivo'
+    echo '            extractPorts()  --> primero :nmap -p- --open -T5 -v -n ip -oG allPorts '
+    echo '            -Extrae nmap informacion en un archivo'
     echo '            fzf-lovely()    --> fzf file manager'
     echo '            backuApps()     --> Guarda en dos archivos lista de app instaladas '
     echo '            backupDots()    --> Backup de dots en github'
     echo '            appsPreview()   --> Preview de software instalado'
     #    echo '      funcion()      --> Descripcion '
-    echo '
-        ####################################################################################
+    echo ''
+    echo '            #################################################################################### '
+    echo '            Alias : '
+    echo '            bing            brs             google            yahoo             ddg           '             
+    echo '            yandex          github          baidu             ecosia            goodreads     '   
+    echo '            givero          stackoverflow   qwant             wa                sp            '
+    echo '            archive         scholar         ask               translate         wiki          '
+    echo '            news            youtube         map               image             duckynpmhelp  '
+    echo '            code            red             zshconfig         ohmyzsh           update        '    
+    echo '            myip            distro          reload            server                          '
+    echo '            #################################################################################### '
+    echo '            El programa "navi " es un buscador de comandos - Para activar el menú, pulse tab dos veces.'
+    echo ''                
+    echo '            Ir hacia atrás en el historial de directorios (Alt+Left) - Ir hacia el directorio padre (Alt+Up) '
+    echo '            ####################################################################################'
+    echo ''
 
-
-                Alias : npmhelp,code,red,zshconfig,ohmyzsh,update,myip,distro,reload,server
-                El programa "navi " es un buscador de comandos
-                Para activar el menú, pulse tab dos veces.
-                Ir hacia atrás en el historial de directorios (Alt+Left)
-                Ir hacia el directorio padre (Alt+Up)
-
-
-
-            ####################################################################################'
 
 function acercade() {
-
-
     echo ' '
     echo ' ####################################################################################'
     echo ' '
@@ -200,8 +203,9 @@ function acercade() {
 
 
 }
-# ------------------------------------------------------------------------------
 
+ansiweather -l "Tandil,AR" -u metric -s true -f 5 -d true
+# ------------------------------------------------------------------------------
 
 # alias bing='web_search bing'
 # alias brs='web_search brave'
@@ -390,16 +394,17 @@ HIST_STAMPS="dd/mm/yyyy"
 
 
 plugins=(
+zsh-syntax-highlighting
+zsh-completions
+git-flow-completion
 git
 fd
 dotbare
 zsh-autosuggestions
 auto-notify $plugins
 colorize
-zsh-syntax-highlighting
 web-search
 kubectl
-zsh-completions
 zsh-navigation-tools
 )
 
@@ -449,9 +454,9 @@ source /usr/share/doc/find-the-command/ftc.zsh
 # 
 # Ejemplo de alias
 
-echo ''
-echo 'Para saber que alias activos existen escriba :"alias" '
-echo ''
+echo '
+    Para saber que alias activos existen escriba :"alias"
+'
 alias npmhelp='firefox https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm'
 alias code='code-insiders --no-sandbox --unity-launch %F'
 alias red='nmcli device show'
@@ -459,16 +464,9 @@ alias zshconfig='kate ~/.zshrc'
 alias ohmyzsh='kate ~/.oh-my-zsh'
 alias update='yay -Syyyu --noconfirm'
 alias myip='curl http://ipecho.net/plain; echo'
-alias distro=    'cat /etc/*-release'
-
-alias server=    'sudo python -m http.server'
+alias distro='cat /etc/*-release'
+alias server='sudo python -m http.server'
 #python 2 = python -m SimpleHTTPServer 8000'
-
-
-
-
-
-
 
 #  Alias subfijos activa al escribir el nombre de archivo el software correspondiente
 #  alias -s txt=nano
@@ -480,8 +478,6 @@ alias server=    'sudo python -m http.server'
  alias -s html=code
  alias -s json=code
 
-
-
 #export PATH="/opt/homebrew/bin:$PATH"
 # #Homebrew
 # export PATH="/opt/homebrew/bin:$PATH"
@@ -490,11 +486,8 @@ alias server=    'sudo python -m http.server'
 
 export PATH="/usr/bin:$PATH"
 
-
-
 #[ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -578,7 +571,13 @@ function phpserver() {
 # ------------------------------------------------------------------------------
 # Muestra los 20 comandos más usados
 function zshstats() {
-  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n20
+  fc -l 1 |
+  awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' |
+  grep -v "./" |
+  column -c3 -s " " -t |
+  sort -nr |
+  nl |
+  head -n20
 }
 # ------------------------------------------------------------------------------
 # Permite editar los archivos de configuración de las aplicaciones más usadas
@@ -602,7 +601,8 @@ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 127.0.0.1 -oG allport
 
 }
 
-
+# Used:
+# nmap -p- --open -T5 -v -n ip -oG allPorts
 # Extract nmap information:
 function extractPorts(){
 	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
@@ -673,14 +673,18 @@ pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execu
 
 }
 
-function backupApps(){
-  pacman -Qqm > pkglist-aur.txt
-  pacman -Qqe > pkglist.txt
-}
+
 
 function backupDots(){
+  echo 'Realizando backup de los dots'
   dotbare commit -a -m "ultimo backup"
   dotbare push -u origin main
+}
+
+function backupApps(){
+  backupDots()
+  pacman -Qqm > pkglist-aur.txt
+  pacman -Qqe > pkglist.txt
 }
 
 function reload(){
