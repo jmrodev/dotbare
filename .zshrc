@@ -232,7 +232,49 @@ function acercade() {
 
 }
 
-ansiweather -l "Tandil,AR" -u metric -s true -f 5 -d true
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+
+# Banderas de compilación
+# Exportar Archflags = "-Arch X86_64"
+# Establezca alias personales, anulando los proporcionados por OH-My-Zsh Libs,
+# complementos y temas. Los alias se pueden colocar aquí, aunque oh-my-zsh
+# Se alienta a los usuarios a definir alias dentro de la carpeta ZSH_CUSTOM.
+# Para una lista completa de alias activos, ejecute `alias`.
+#
+# Ejemplo de alias
+
+echo '
+    Para saber que alias activos existen escriba :"alias"
+'
+alias npmhelp='firefox https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm'
+alias code='code-insiders --no-sandbox --unity-launch %F'
+alias red='nmcli device show'
+alias zshconfig='kate ~/.zshrc'
+alias ohmyzsh='kate ~/.oh-my-zsh'
+alias update='yay -Syyyu --noconfirm'
+alias myip='curl http://ipecho.net/plain; echo'
+alias distro='cat /etc/*-release'
+alias server='sudo python -m http.server'
+#python 2 = python -m SimpleHTTPServer 8000'
+
+#  Alias subfijos activa al escribir el nombre de archivo el software correspondiente
+#  alias -s txt=nano
+#  alias -s py=code
+#  alias -s json=code
+
+ alias -s txt=nano
+ alias -s js=code
+ alias -s html=code
+ alias -s json=code
+
+
+
 # ------------------------------------------------------------------------------
 
 # alias bing='web_search bing'
@@ -289,6 +331,9 @@ ZSH_THEME="random"
 echo $RANDOM_THEME
 
 
+
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -302,6 +347,8 @@ echo $RANDOM_THEME
 # Zsh_theme_random_candidates = ("Robbyrussell" "Agnoster")
 
  ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "darkblood" "terminalparty" "candy" "cloud")
+
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -463,46 +510,6 @@ source /usr/share/doc/find-the-command/ftc.zsh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-
-# Banderas de compilación 
-# Exportar Archflags = "-Arch X86_64" 
-# Establezca alias personales, anulando los proporcionados por OH-My-Zsh Libs, 
-# complementos y temas. Los alias se pueden colocar aquí, aunque oh-my-zsh 
-# Se alienta a los usuarios a definir alias dentro de la carpeta ZSH_CUSTOM. 
-# Para una lista completa de alias activos, ejecute `alias`. 
-# 
-# Ejemplo de alias
-
-echo '
-    Para saber que alias activos existen escriba :"alias"
-'
-alias npmhelp='firefox https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm'
-alias code='code-insiders --no-sandbox --unity-launch %F'
-alias red='nmcli device show'
-alias zshconfig='kate ~/.zshrc'
-alias ohmyzsh='kate ~/.oh-my-zsh'
-alias update='yay -Syyyu --noconfirm'
-alias myip='curl http://ipecho.net/plain; echo'
-alias distro='cat /etc/*-release'
-alias server='sudo python -m http.server'
-#python 2 = python -m SimpleHTTPServer 8000'
-
-#  Alias subfijos activa al escribir el nombre de archivo el software correspondiente
-#  alias -s txt=nano
-#  alias -s py=code
-#  alias -s json=code
-
- alias -s txt=nano
- alias -s js=code
- alias -s html=code
- alias -s json=code
 
 #export PATH="/opt/homebrew/bin:$PATH"
 # #Homebrew
@@ -726,3 +733,5 @@ promptinit
 # End of lines added by compinstall
 
 
+
+ ansiweather -l "Tandil,AR" -u metric -s true -f 5 -d true

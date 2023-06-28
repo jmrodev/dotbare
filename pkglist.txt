@@ -17,6 +17,7 @@ avahi
 b43-fwcutter
 base
 base-devel
+beebeep
 bind
 bleachbit
 bluedevil
@@ -93,6 +94,7 @@ hyphen-es
 inetutils
 intel-ucode
 intellij-idea-community-edition
+intellij-idea-ultimate-edition
 inxi
 jfsutils
 kaccounts-providers
@@ -177,6 +179,7 @@ manjaro-settings-manager-kcm
 manjaro-settings-manager-knotifier
 manjaro-system
 manjaro-tools-iso-git
+mariadb
 mc
 mdadm
 meld
@@ -348,6 +351,7 @@ visual-studio-code-insiders
 vlc
 vulkan-intel
 vulkan-radeon
+webmin
 wezterm
 wget
 which

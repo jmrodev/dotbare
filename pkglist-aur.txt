@@ -12,6 +12,7 @@ git-secret
 github-copilot-cli
 github-desktop
 google-chrome
+intellij-idea-ultimate-edition
 kde-servicemenus-newfolderwithselection
 kubecolor
 libelectron
@@ -21,6 +22,8 @@ nerd-fonts-git
 ngrok
 nzbget-systemd
 pakbak-git
+perl-authen-pam
+perl-encode-detect
 postman-bin
 prowlarr
 radarr
@@ -32,4 +35,5 @@ sonarr
 teleprompter-git
 twitch
 virtualbox-ext-oracle
+webmin
 zsh-theme-powerlevel10k-git
