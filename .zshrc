@@ -702,14 +702,20 @@ pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execu
 
 }
 
-function backupDots(){
+function backupDots()
+  echo'Realizando backup'
+  pacman -Qqm > pkglist-aur.txt
+  pacman -Qqe > pkglist.txt
   dotbare commit -a -m "ultimo backup"
   dotbare push -u origin main
 }
 
 function backupApps(){
+  echo'Realizando backup'
   pacman -Qqm > pkglist-aur.txt
   pacman -Qqe > pkglist.txt
+  # pacman -S - < pkglist.txt
+  # yay -S - < pkglist.txt
 }
 
 function reload(){
