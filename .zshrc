@@ -166,7 +166,6 @@ bindkey '^[[1;3D'      cdUndoKey
     echo ''
     echo ''
     echo '            ####################################################################################'
-    echo '            ****                                                                            ****'
     echo '            ****  acercade()      --> Mostrar este menú                                     ****'
     echo '            ****  clone()         --> Clona y almacena en '$HOME'/code                   ****'
     echo '            ****  configura()     --> Editar archivos configuración apps más usadas         ****'
@@ -702,7 +701,7 @@ pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execu
 
 }
 
-function backupDots()
+function backupDots(){
   echo'Realizando backup'
   pacman -Qqm > pkglist-aur.txt
   pacman -Qqe > pkglist.txt
