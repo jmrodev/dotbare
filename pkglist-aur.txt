@@ -18,6 +18,7 @@ kubecolor
 libelectron
 lidarr
 microsoft-edge-stable-bin
+mod_fcgid
 nerd-fonts-git
 ngrok
 nzbget-systemd

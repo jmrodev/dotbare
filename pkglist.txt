@@ -9,6 +9,7 @@ alsa-firmware
 alsa-utils
 ansiweather
 anydesk-bin
+apache
 ark
 asciinema
 atuin
@@ -104,8 +105,12 @@ kate
 kcalc
 kde-applications-meta
 kde-cli-tools
+kde-dev-scripts
+kde-dev-utils
 kde-development-environment-meta
 kde-gtk-config
+kde-multimedia-meta
+kde-office-meta
 kde-servicemenus-newfolderwithselection
 kdeconnect
 kdegraphics-thumbnailers
@@ -195,6 +200,7 @@ milou
 minikube
 mkinitcpio-openswap
 mobile-broadband-provider-info
+mod_fcgid
 modemmanager
 mtpfs
 mutt
@@ -242,6 +248,7 @@ perl
 perl-file-mimeinfo
 phonon-qt5-gstreamer
 php
+php-cgi
 plasma-browser-integration
 plasma-desktop
 plasma-meta

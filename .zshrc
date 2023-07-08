@@ -185,6 +185,7 @@ bindkey '^[[1;3D'      cdUndoKey
     echo '            ****  backupDots()    --> Backup de dots en github                              ****' 
     echo '            ****  appsPreview()   --> Preview de software instalado                         ****'    
     #    echo '      funcion()      --> Descripcion '
+##     <<<<<<< HEAD
     echo '            ****  Alias : ################################################################  ****'
     echo '            ****  bing        brs             google       yahoo         ddg                ****'             
     echo '            ****  yandex      github          baidu        ecosia        goodreads          ****'   
@@ -199,6 +200,22 @@ bindkey '^[[1;3D'      cdUndoKey
     echo '            ****  Para activar el menú, pulse tab dos veces.                                ****'
     echo '            ****  asciinema rec : graba la terminal -asciinema play : reproduce lo grabado  ****'
     echo '            ****  Atrás en historial dir (Alt+Left) - Ir al dir padre (Alt+Up)              ****'
+
+    echo ''
+    echo '            #################################################################################### '
+    echo '            Alias : '
+    echo '            bing            brs             google            yahoo             ddg           '             
+    echo '            yandex          github          baidu             ecosia            goodreads     '   
+    echo '            givero          stackoverflow   qwant             wa                sp            '
+    echo '            archive         scholar         ask               translate         wiki          '
+    echo '            news            youtube         map               image             duckynpmhelp  '
+    echo '            code            red             zshconfig         ohmyzsh           update        '    
+    echo '            myip            distro          reload            server                          '
+    echo '            #################################################################################### '
+    echo '            El programa "navi " es un buscador de comandos - Para activar el menú, pulse tab dos veces.'
+    echo '            asciinema rec : graba la terminal -asciinema play : reproduce lo grabado - '
+    echo '            Ir hacia atrás en el historial de directorios (Alt+Left) - Ir hacia el directorio padre (Alt+Up) '
+
     echo '            ####################################################################################'
     echo ''
 
