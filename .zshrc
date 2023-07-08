@@ -212,7 +212,6 @@ bindkey '^[[1;3D'      cdUndoKey
     echo '            code            red             zshconfig         ohmyzsh           update        '    
     echo '            myip            distro          reload            server                          '
     echo '            #################################################################################### '
-    echo '            netstat -a -n   : Active Internet connections (servers and established).'
     echo '            El programa "navi " es un buscador de comandos - Para activar el menú, pulse tab dos veces.'
     echo '            asciinema rec : graba la terminal -asciinema play : reproduce lo grabado - '
     echo '            Ir hacia atrás en el historial de directorios (Alt+Left) - Ir hacia el directorio padre (Alt+Up) '
@@ -345,9 +344,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # cargar un tema aleatorio cada vez que se cargue oh-my-zsh, en cuyo caso,
 # para saber cuál se cargó específicamente, ejecute: echo $RANDOM_THEME
 # Ver
-
-ZSH_THEME="random"
-echo $RANDOM_THEME
+#
+# ZSH_THEME="random"
+# echo $RANDOM_THEME
 
 
 
@@ -365,7 +364,7 @@ echo $RANDOM_THEME
 # Si se establece en una matriz vacía, esta variable no tendrá ningún efecto. 
 # Zsh_theme_random_candidates = ("Robbyrussell" "Agnoster")
 
- ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "darkblood" "terminalparty" "candy" "cloud")
+#  ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "darkblood" "terminalparty" "candy" "cloud")
 
 
 
@@ -737,19 +736,6 @@ function reload(){
   source ~/.zshrc
 }
 
-function reload_apache(){
- if apache_conftest; then
-                if ! pidofproc -p $PIDFILE "$DAEMON" > /dev/null 2>&1 ; then
-                        APACHE2_INIT_MESSAGE="Apache2 is not running"
-                        return 2
-                fi
-                $APACHE2CTL graceful > /dev/null 2>&1
-                return $?
-        else
-                APACHE2_INIT_MESSAGE="The apache2$DIR_SUFFIX configtest failed. Not doing anything."
-                return 2
-        fi
-}
 
 
 source /home/jmro/zaw/zaw.zsh
