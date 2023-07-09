@@ -1,7 +1,13 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi    
-    
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+
+
+  if [ ! -d "${ZSHDDIR}" ]; then
+    mkdir -p "${ZSHDDIR}" && echo "# Put your user-specified config here." > "${ZSHDDIR}/user_zshrc.zsh"
+  fi
+
+
 typeset -g -A key
 
 key[Home]="${terminfo[khome]}"
@@ -57,20 +63,30 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd/mm/yyyy"
 
-setopt autocd beep extendedglob nomatch notify pushdignoredups pushdminus autopushd pushdsilent pushdtohome
+setopt autocd beep extendedglob nomatch notify pushdignoredups pushdminus autopushd pushdsilent pushdtohome extendedGlob promptsubst
 bindkey -e
 
 zstyle :compinstall filename '/home/jmro/.zshrc'
 zstyle ':omz:update' mode auto
+zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true
+
+autoload -U zargs
+autoload -U zmv
+autoload -U run-help
+autoload run-help-git
+autoload run-help-svn
+autoload run-help-svk
+unalias run-help
+alias help=run-help
 
 autoload -Uz compinit promptinit
 compinit
 promptinit
 #Para activar el menú, pulse tab dos veces.
-zstyle ':completion:*' menu select
 setopt completealiases
 setopt HIST_IGNORE_DUPS
-awk -i inplace '!x[$0]++' ~/.zsh_history
+
 
 cdUndoKey() {
   popd      > /dev/null
@@ -149,11 +165,7 @@ bindkey '^[[1;3D'      cdUndoKey
 
     echo '            ####################################################################################'
     echo ''
-
-
-
-echo '
-    Para saber que alias activos existen escriba :"alias"
+    echo '            Para saber que alias activos existen escriba :"alias"
 '
 alias npmhelp='firefox https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm'
 alias code='code-insiders --no-sandbox --unity-launch %F'
@@ -211,6 +223,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/doc/find-the-command/ftc.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /home/jmro/zaw/zaw.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 plugins=(zsh-syntax-highlighting zsh-completions git-flow-completion git fd dotbare
 zsh-autosuggestions auto-notify $plugins  colorize  web-search kubectl zsh-navigation-tools)
@@ -220,7 +233,7 @@ zsh-autosuggestions auto-notify $plugins  colorize  web-search kubectl zsh-navig
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -376,7 +389,9 @@ function backupApps(){
 }
 
 function reload(){
-  source ~/.zshrc
+  exec "${SHELL}" "$@"
+ # source ~/.zshrc
 }
 
+awk -i inplace '!x[$0]++' ~/.zsh_history
 ansiweather -l "Tandil,AR" -u metric -s true -f 5 -d true

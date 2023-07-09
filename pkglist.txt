@@ -1,5 +1,6 @@
 acpi
 acpid
+adminer
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
@@ -27,6 +28,7 @@ breeze-gtk
 btrfs-progs
 bzip2
 calibre
+cockpit
 coreutils
 cpupower
 cronie
@@ -36,6 +38,7 @@ czkawka-gui-bin
 device-mapper
 dhclient
 dhcpcd
+dialog
 diffutils
 discord
 dmidecode
@@ -111,6 +114,7 @@ kde-development-environment-meta
 kde-gtk-config
 kde-multimedia-meta
 kde-office-meta
+kde-service-menu-encfs
 kde-servicemenus-newfolderwithselection
 kdeconnect
 kdegraphics-thumbnailers
@@ -143,9 +147,15 @@ kwalletmanager
 kwayland-integration
 kwin
 kwrited
+lamp
 lazygit
 less
+lib32-alsa-lib
+lib32-alsa-plugins
+lib32-gst-plugins-base
+lib32-gst-plugins-good
 lib32-libcanberra
+lib32-libpulse
 lib32-libva-intel-driver
 lib32-libva-mesa-driver
 lib32-libva-vdpau-driver
@@ -185,7 +195,6 @@ manjaro-settings-manager-kcm
 manjaro-settings-manager-knotifier
 manjaro-system
 manjaro-tools-iso-git
-mariadb
 mc
 mdadm
 meld
@@ -204,9 +213,11 @@ mod_fcgid
 modemmanager
 mtpfs
 mutt
+mysql-workbench
 nano
 nano-syntax-highlighting
 navi
+ncftp
 neofetch
 neovim
 nerd-fonts-git
@@ -248,7 +259,9 @@ perl
 perl-file-mimeinfo
 phonon-qt5-gstreamer
 php
+php-apache
 php-cgi
+phpmyadmin
 plasma-browser-integration
 plasma-desktop
 plasma-meta
@@ -260,10 +273,13 @@ plasma-thunderbolt
 plasma-wayland-session
 plasma-workspace
 plasma-workspace-wallpapers
+plasma5-applets-systemd
+playonlinux
 plymouth
 plymouth-kcm
 plymouth-theme-manjaro
 poppler-data
+portainer-bin
 postman-bin
 power-profiles-daemon
 powerdevil
@@ -272,6 +288,7 @@ print-manager
 prowlarr
 pulseaudio-bluetooth
 pulseaudio-ctl
+pulseaudio-equalizer-ladspa
 pulseaudio-zeroconf
 python-pillow
 python-pip
@@ -308,6 +325,8 @@ sysfsutils
 system-config-printer
 systemd
 systemd-kcm
+systemd-manager
+systemdgenie
 systemsettings
 telegram-desktop
 teleprompter-git
@@ -363,6 +382,11 @@ webmin
 wezterm
 wget
 which
+wine-gecko
+wine-mono
+wine-staging
+winegui-bin
+winetricks
 wireless-regdb
 wpa_supplicant
 xclip
@@ -385,7 +409,9 @@ xorg-xinit
 xorg-xkill
 yakuake
 yay
+zoneminder
 zsh
 zsh-completions
 zsh-history-substring-search
+zsh-syntax-highlighting
 zsh-theme-powerlevel10k-git
