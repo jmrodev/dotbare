@@ -11,6 +11,7 @@ alsa-utils
 ansiweather
 anydesk-bin
 apache
+arduino
 ark
 asciinema
 atuin
@@ -20,6 +21,7 @@ avahi
 b43-fwcutter
 base
 base-devel
+bash-language-server
 beebeep
 bind
 bleachbit
@@ -29,6 +31,7 @@ btrfs-progs
 bzip2
 calibre
 cockpit
+colordiff
 coreutils
 cpupower
 cronie
@@ -132,6 +135,7 @@ kinfocenter
 kinit
 kio-extras
 kmenuedit
+kommit
 konsole
 krita
 kscreen
@@ -238,6 +242,7 @@ nss-mdns
 ntfs-3g
 ntp
 numlockx
+nyx
 nzbget
 nzbget-systemd
 okular
@@ -333,14 +338,12 @@ teleprompter-git
 terminus-font
 texinfo
 texlive-bibtexextra
-texlive-core
 texlive-fontsextra
 texlive-formatsextra
 texlive-games
 texlive-humanities
 texlive-langchinese
 texlive-langcyrillic
-texlive-langextra
 texlive-langgreek
 texlive-langjapanese
 texlive-langkorean
@@ -349,10 +352,11 @@ texlive-music
 texlive-pictures
 texlive-pstricks
 texlive-publishers
-texlive-science
 thefuck
 timeshift
 timeshift-autosnap-manjaro
+tor
+torbrowser-launcher
 tree
 ttf-3270-nerd
 ttf-cascadia-code
@@ -391,6 +395,7 @@ wireless-regdb
 wpa_supplicant
 xclip
 xdg-desktop-portal-kde
+xdg-ninja
 xdg-user-dirs
 xdg-utils
 xf86-input-elographics
@@ -409,6 +414,7 @@ xorg-xinit
 xorg-xkill
 yakuake
 yay
+youtube-dl-gui
 zoneminder
 zsh
 zsh-completions

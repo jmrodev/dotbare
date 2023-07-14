@@ -19,6 +19,7 @@ kde-servicemenus-newfolderwithselection
 kubecolor
 lamp
 libelectron
+libsidplay
 lidarr
 microsoft-edge-stable-bin
 mod_fcgid
@@ -63,5 +64,7 @@ ucl
 virtualbox-ext-oracle
 webmin
 winegui-bin
+xdg-ninja
+youtube-dl-gui
 zoneminder
 zsh-theme-powerlevel10k-git
