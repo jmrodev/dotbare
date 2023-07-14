@@ -1,0 +1,57 @@
+
+alias archive='web_search archive'
+alias ask='web_search ask'
+alias baidu='web_search baidu'
+alias bing='web_search bing'
+alias brs='web_search brave'
+alias b= 'kubectl'
+alias chown="chown -c"
+alias chmod="chmod -c"
+alias code='code-insiders --no-sandbox --unity-launch %F'
+alias cp='cp -iv --reflink=auto'
+alias ddg='web_search duckduckgo'
+alias distro='cat /etc/*-release'
+alias ducky='web_search duckduckgo \!'
+alias ecosia='web_search ecosia'
+alias egrep='egrep --colour=auto'
+alias givero='web_search givero'
+alias github='web_search github'
+alias goodreads='web_search goodreads'
+alias google='web_search google'
+alias grep='grep --colour=auto'
+alias image='web_search duckduckgo \!i'
+alias k=kubectl
+alias ln='ln -v'
+alias ll='ls --color=auto --human-readable --group-directories-first --classify -l'
+alias lla='ls --color=auto --human-readable --group-directories-first --classify -la'
+alias ls='ls --color=auto --human-readable --group-directories-first --classify'
+alias map='web_search duckduckgo \!m'
+alias mkdir="mkdir -v"
+alias mv='mv -iv'
+alias myip='curl http://ipecho.net/plain; echo'
+alias news='web_search duckduckgo \!n'
+alias npmhelp='firefox https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm'
+alias ohmyzsh='kate ~/.oh-my-zsh/oh-my-zsh.sh'
+alias qwant='web_search qwant'
+alias rcp='rsync -v --progress'
+alias red='nmcli device show'
+alias rm='rm -iv'
+alias rmv='rsync -v --progress --remove-source-files'
+alias rmdir='rmdir -v'
+alias scholar='web_search scholar'
+alias server='sudo python -m http.server 80'
+alias sp='web_search startpage'
+alias stackoverflow='web_search stackoverflow'
+alias translate='web_search translate'
+alias update='yay -Syyyu --noconfirm'
+alias wa='web_search wolframalpha'
+alias wiki='web_search duckduckgo \!w'
+alias yahoo='web_search yahoo'
+alias yandex='web_search yandex'
+alias youtube='web_search duckduckgo \!yt'
+alias zshconfig='kate ~/.zshrc'
+
+alias -s txt=nano
+alias -s js=code
+alias -s html=code
+alias -s json=code
